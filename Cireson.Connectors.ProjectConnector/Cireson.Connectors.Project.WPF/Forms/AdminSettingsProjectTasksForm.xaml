@@ -1,0 +1,63 @@
+﻿<wpfwiz:WizardRegularPageBase x:Class="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Forms.AdminSettingsProjectTasksForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wpfwiz="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfWizardFramework;assembly=Microsoft.EnterpriseManagement.UI.WpfWizardFramework"
+             xmlns:classes="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Classes" 
+             xmlns:scwpf="http://schemas.microsoft.com/SystemCenter/Common/UI/Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="500">
+    <Grid Margin="20,20,20,20">
+        <Grid.Resources>
+            <classes:StringConverter x:Key="strConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>  
+        <StackPanel Grid.Row="0">
+            <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strProjectTasksSettings}" FontSize="16" Foreground="#242fc4" />
+            <TextBlock Text="{Binding Converter={StaticResource strConverter}, ConverterParameter=strProjectTasksSettingsDescription}" Margin="0,0,0,10" TextWrapping="WrapWithOverflow"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,10,0,0">
+            <CheckBox x:Name="cbEnableTasksInsertion" IsChecked="{Binding Path=IsTaskInsertionEnabled}" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strEnableProjectTasksInsertion}" />
+            <StackPanel x:Name="spProjectTasksSettings" IsEnabled="{Binding ElementName=cbEnableTasksInsertion, Path=IsChecked}" Margin="10,10,0,0" >
+                <StackPanel Margin="5,5,0,10" >
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strSelectConnector}" />
+                    <ComboBox ItemsSource="{Binding Path=ProjectConnectors}" SelectedItem="{Binding Path=SelectedConnector}" DisplayMemberPath="DisplayName" />
+                </StackPanel>
+                <StackPanel Margin="5,10,0,0">
+                    <CheckBox IsChecked="{Binding Path=IsChangeProcessingEnabled}" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strIsChangeProcessingEnabled}" />
+                    <TextBlock Text="{Binding Converter={StaticResource strConverter}, ConverterParameter=strChangeProcessingDescription}" Margin="0,5,0,10" FontStyle="Italic" TextWrapping="WrapWithOverflow" />
+                    <CheckBox IsChecked="{Binding Path=CanAssignActivityImplementer}" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strCanAssignActivityImplementer}" />
+                    <TextBlock Text="{Binding Converter={StaticResource strConverter}, ConverterParameter=strAssignActivityImplementerDescription}" Margin="0,5,0,10" FontStyle="Italic" TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+                <StackPanel Margin="5,10,0,10" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strTasksTag}"/>
+                        <TextBox Text="{Binding Path=TaskInsertionTag}" MinWidth="60" />
+                    </StackPanel>
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strTasksTagDescription}" FontStyle="Italic" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5,10,0,10">
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strTaskActivityPrefix}" />
+                    <TextBox Text="{Binding Path=TaskActivityPrefix}" MinWidth="60" />
+                </StackPanel>
+                <StackPanel Margin="5,10,0,0" >
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strTasksInsertIndexDescription1}" />
+                    <ComboBox x:Name="cbActivityStage" ItemsSource="{Binding Path=ActivityStageEnums}" SelectedItem="{Binding Path=ActivityStageInsertionEnum}" DisplayMemberPath="DisplayName"  />
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strTasksInsertIndexDescription2}" FontStyle="Italic"  />
+                </StackPanel>
+                <StackPanel Margin="5,10,0,0">
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strEvalTasksInterval}" />
+                        <TextBox Text="{Binding Path=TaskEvalFrequencyInterval}" MinWidth="60" />
+                        <ComboBox x:Name="cbFrequencyUnit" MinWidth="150" Height="24" Margin="10,0,0,0" SelectionChanged="cbFrequencyUnit_SelectionChanged"  />
+                    </StackPanel>
+                    <TextBlock Text="{Binding Converter={StaticResource strConverter}, ConverterParameter=strEvalTasksIntervalDescription}" FontStyle="Italic" Margin="0,5,0,10" TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</wpfwiz:WizardRegularPageBase>

@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\andre\\Downloads\\ProjectServerConnector\\ProjectServerConnector\\Cireson.Connectors.ProjectConnector\\Cireson.Connectors.Project.WPF\\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.csproj",
+  "TargetFramework": "v3.5",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

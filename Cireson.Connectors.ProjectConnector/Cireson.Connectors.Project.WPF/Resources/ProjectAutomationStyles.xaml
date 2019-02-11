@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/AdvancedControls/AdvancedStyles/Calendar.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/AdvancedControls/AdvancedStyles/DatePicker.xaml" />
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/AdvancedControls/AdvancedStyles/DataGrid.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicControlsCollection.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/BaseStyles.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/ToggleButton.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/Button.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/HeaderedContentControl.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/HeaderedItemsControl.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/ListBox.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/Text.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/Expander.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/ListView.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/HyperLink.xaml"/>
+        <!--<ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/AdvancedControls/AdvancedStyles/Calendar.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/AdvancedControls/AdvancedStyles/DatePicker.xaml" />
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/AdvancedControls/AdvancedStyles/DataGrid.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/BasicControls/BasicStyles/ListView.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/CommonStyles/CommonStyles.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/SMControls/SMControlsCollection.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/Templates/DefaultTemplates.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/Borders/BasicBorderStyles.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.ServiceManager.SharedResources;component/Themes/DefaultCollection.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.UI.SMControls;component/Themes/Aero.NormalColor.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.UI.SMControls;component/Themes/shared.generic.xaml"/>
+        <ResourceDictionary Source="/Microsoft.EnterpriseManagement.UI.SMControls;component/Themes/generic.xaml"/>-->
+        <!---<ResourceDictionary Source="/Microsoft.EnterpriseManagement.UI.SMControls;component/singleinstancepicker/singleinstancepicker.xaml"/>-->
+        <!--<ResourceDictionary Source="/WPFToolkit;component/Themes/Luna.NormalColor.xaml"/>
+        <ResourceDictionary Source="/WPFToolkit;component/Themes/Classic.xaml"/>
+        <ResourceDictionary Source="/WPFToolkit;component/Themes/Generic.xaml"/>
+        <ResourceDictionary Source="/WPFToolkit;component/Themes/Luna.Metallic.xaml"/>
+        <ResourceDictionary Source="/WPFToolkit;component/Themes/Aero.NormalColor.xaml"/>
+        <ResourceDictionary Source="/WPFToolkit;component/Themes/Royale.NormalColor.xaml"/>-->
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

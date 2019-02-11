@@ -1,0 +1,51 @@
+﻿<wpfwiz:WizardRegularPageBase x:Class="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Forms.AdminSettingsGroomingForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:wpfwiz="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfWizardFramework;assembly=Microsoft.EnterpriseManagement.UI.WpfWizardFramework"
+             xmlns:classes="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Classes" 
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:wpf="http://schemas.microsoft.com/netfx/2007/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="20,20,20,20">
+        <Grid.Resources>
+            <classes:StringConverter x:Key="strConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strDataRetentionSettings}" FontSize="16" Foreground="#242fc4" />
+                <TextBlock Text="{Binding Converter={StaticResource strConverter}, ConverterParameter=strGroomingDescription}" Margin="0,0,0,10" TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="0,20, 0, 20" >
+                    <CheckBox x:Name="cbRetentionEnabled" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strEnableGrooming}" IsChecked="{Binding Path=IsEnabled}" Checked="cbRetentionEnabled_Checked" Unchecked="cbRetentionEnabled_Unchecked" />
+                </StackPanel>
+                <StackPanel x:Name="spDataRetentionTime" Grid.Row="2" Margin="20,0,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strRetentionTime}" Grid.Column="0" />
+                        <wpf:WindowsFormsHost Width="Auto" Height="Auto" Grid.Column="1"  >
+                            <wf:NumericUpDown x:Name="numericDays" Minimum="1" AutoSize="True" Width="50" Height="24" Maximum="99999" />
+                        </wpf:WindowsFormsHost>
+                        <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strDays}" Grid.Column="2" Margin="5,0,0,0" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</wpfwiz:WizardRegularPageBase>
