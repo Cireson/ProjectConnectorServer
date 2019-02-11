@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.Adapter", "Cireson.Connectors.Project.Adapter\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.Adapter.csproj", "{BFBBE3C4-DF54-4BFA-80A4-2AD14E9C2D87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.Workflows", "Cireson.Connectors.Project.Workflows\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.Workflows.csproj", "{EA08DA28-68B7-4631-ADE1-EFDF5AA06EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF", "Cireson.Connectors.Project.WPF\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.csproj", "{E7969CDC-17AE-4DB9-9C6A-34BF4FF4EC7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks", "Cireson.Connectors.Project.ConsoleTasks\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.csproj", "{259D959C-BAFB-4282-98D9-82A08E765202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.InteropHelper", "Cireson.Connectors.Project.Helpers\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.InteropHelper.csproj", "{EA017765-8C4A-4FFE-A6B5-A05475B642B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{76B1E3B4-0F6E-4405-BFC1-B479BEE64045}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\LicenseManagement.Client.dll = Dependencies\LicenseManagement.Client.dll
+		Dependencies\Microsoft.EnterpriseManagement.Common.dll = Dependencies\Microsoft.EnterpriseManagement.Common.dll
+		Dependencies\Microsoft.EnterpriseManagement.Core.dll = Dependencies\Microsoft.EnterpriseManagement.Core.dll
+		Dependencies\Microsoft.EnterpriseManagement.ServiceManager.Application.Common.dll = Dependencies\Microsoft.EnterpriseManagement.ServiceManager.Application.Common.dll
+		Dependencies\Microsoft.EnterpriseManagement.ServiceManager.SharedResources.dll = Dependencies\Microsoft.EnterpriseManagement.ServiceManager.SharedResources.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.ConsoleFramework.dll = Dependencies\Microsoft.EnterpriseManagement.UI.ConsoleFramework.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.Controls.dll = Dependencies\Microsoft.EnterpriseManagement.UI.Controls.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.Core.dll = Dependencies\Microsoft.EnterpriseManagement.UI.Core.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.Extensions.dll = Dependencies\Microsoft.EnterpriseManagement.UI.Extensions.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.FormsInfra.dll = Dependencies\Microsoft.EnterpriseManagement.UI.FormsInfra.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.Foundation.dll = Dependencies\Microsoft.EnterpriseManagement.UI.Foundation.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.SdkDataAccess.dll = Dependencies\Microsoft.EnterpriseManagement.UI.SdkDataAccess.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.SMControls.dll = Dependencies\Microsoft.EnterpriseManagement.UI.SMControls.dll
+		Dependencies\Microsoft.EnterpriseManagement.UI.WpfWizardFramework.dll = Dependencies\Microsoft.EnterpriseManagement.UI.WpfWizardFramework.dll
+		Dependencies\Microsoft.ProjectServer.Client.dll = Dependencies\Microsoft.ProjectServer.Client.dll
+		Dependencies\Microsoft.ServiceManager.WorkflowAuthoring.ActivityLibrary.dll = Dependencies\Microsoft.ServiceManager.WorkflowAuthoring.ActivityLibrary.dll
+		Dependencies\Microsoft.SharePoint.Client.dll = Dependencies\Microsoft.SharePoint.Client.dll
+		Dependencies\Microsoft.SharePoint.Client.Runtime.dll = Dependencies\Microsoft.SharePoint.Client.Runtime.dll
+		Dependencies\WPFToolKit.dll = Dependencies\WPFToolKit.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFBBE3C4-DF54-4BFA-80A4-2AD14E9C2D87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBBE3C4-DF54-4BFA-80A4-2AD14E9C2D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBBE3C4-DF54-4BFA-80A4-2AD14E9C2D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBBE3C4-DF54-4BFA-80A4-2AD14E9C2D87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA08DA28-68B7-4631-ADE1-EFDF5AA06EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA08DA28-68B7-4631-ADE1-EFDF5AA06EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA08DA28-68B7-4631-ADE1-EFDF5AA06EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA08DA28-68B7-4631-ADE1-EFDF5AA06EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7969CDC-17AE-4DB9-9C6A-34BF4FF4EC7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7969CDC-17AE-4DB9-9C6A-34BF4FF4EC7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7969CDC-17AE-4DB9-9C6A-34BF4FF4EC7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7969CDC-17AE-4DB9-9C6A-34BF4FF4EC7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{259D959C-BAFB-4282-98D9-82A08E765202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259D959C-BAFB-4282-98D9-82A08E765202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259D959C-BAFB-4282-98D9-82A08E765202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259D959C-BAFB-4282-98D9-82A08E765202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA017765-8C4A-4FFE-A6B5-A05475B642B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA017765-8C4A-4FFE-A6B5-A05475B642B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA017765-8C4A-4FFE-A6B5-A05475B642B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA017765-8C4A-4FFE-A6B5-A05475B642B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://cireson.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Cireson.Connectors.Project.Adapter\\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.Adapter.csproj
+		SccProjectName1 = Cireson.Connectors.Project.Adapter
+		SccLocalPath1 = Cireson.Connectors.Project.Adapter
+		SccProjectUniqueName2 = Cireson.Connectors.Project.ConsoleTasks\\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.csproj
+		SccProjectName2 = Cireson.Connectors.Project.ConsoleTasks
+		SccLocalPath2 = Cireson.Connectors.Project.ConsoleTasks
+		SccProjectUniqueName3 = Cireson.Connectors.Project.Workflows\\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.Workflows.csproj
+		SccProjectName3 = Cireson.Connectors.Project.Workflows
+		SccLocalPath3 = Cireson.Connectors.Project.Workflows
+		SccProjectUniqueName4 = Cireson.Connectors.Project.WPF\\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.csproj
+		SccProjectName4 = Cireson.Connectors.Project.WPF
+		SccLocalPath4 = Cireson.Connectors.Project.WPF
+		SccProjectUniqueName5 = Cireson.Connectors.Project.Helpers\\Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.InteropHelper.csproj
+		SccProjectName5 = Cireson.Connectors.Project.Helpers
+		SccLocalPath5 = Cireson.Connectors.Project.Helpers
+	EndGlobalSection
+EndGlobal

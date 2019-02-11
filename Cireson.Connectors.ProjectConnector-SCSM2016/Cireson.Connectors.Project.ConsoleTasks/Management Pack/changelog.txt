@@ -1,0 +1,20 @@
+﻿PercentComplete in title & hidden field.
+Activity Implementer is the first resource in Task aa
+Related Implementersa
+
+
+v1
+- Logging
+- Check-box for change/release settings.
+
+v2
+Create release automatically if tag exists in Project title
+	- Tie release to project
+	- Import project tasks to release.
+	- Setting for release record template.
+Create parrllel activity for task activities that share the same start date.
+
+10/6 -- Release Changelog v1
+	- Logging
+	- Option to allow release to project processing for TAs.
+	- Option to turn off Activity Implementer assignment.

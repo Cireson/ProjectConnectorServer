@@ -1,0 +1,2192 @@
+﻿<ManagementPack ContentReadable="true" SchemaVersion="2.0" OriginalSchemaVersion="1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <Manifest>
+    <Identity>
+      <ID>Cireson.ProjectAutomation.Library</ID>
+      <Version>7.5.2016.4</Version>
+    </Identity>
+    <Name>Cireson.ProjectAutomation.Library</Name>
+    <References>
+      <Reference Alias="System">
+        <ID>System.Library</ID>
+        <Version>7.5.8501.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="AdminItem">
+        <ID>System.AdminItem.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Console">
+        <ID>Microsoft.EnterpriseManagement.ServiceManager.UI.Console</ID>
+        <Version>7.5.3079.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="WindowsLibrary">
+        <ID>Microsoft.Windows.Library</ID>
+        <Version>7.5.8501.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="LinkingFramework.Library">
+        <ID>ServiceManager.LinkingFramework.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="UIAdmin">
+        <ID>Microsoft.EnterpriseManagement.ServiceManager.UI.Administration</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="ConfigurationManagement">
+        <ID>ServiceManager.ConfigurationManagement.Library</ID>
+        <Version>7.5.3079.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="WorkItem">
+        <ID>System.WorkItem.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="SupportingItem">
+        <ID>System.SupportingItem.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="CoreKnowledge">
+        <ID>System.Knowledge.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Authoring">
+        <ID>Microsoft.EnterpriseManagement.ServiceManager.UI.Authoring</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Activity">
+        <ID>System.WorkItem.Activity.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="ChangeLibrary">
+        <ID>System.WorkItem.ChangeRequest.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="ReleaseLibrary">
+        <ID>System.WorkItem.ReleaseRecord.Library</ID>
+        <Version>7.5.0.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="ActivityManagement">
+        <ID>ServiceManager.ActivityManagement.Library</ID>
+        <Version>7.5.3079.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+    </References>
+  </Manifest>
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="Microsoft.SystemCenter.Connector.ProjectServer.Settings" Accessibility="Public" Abstract="false" Base="AdminItem!System.SolutionSettings" Hosted="false" Singleton="true" Extension="false">
+          <Property ID="Key" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="1024" MinLength="0" Required="false"/>
+          <Property ID="IsRetentionEnabled" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" />
+          <Property ID="RetentionDays" Type="int" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="365"/>
+          <Property ID="IsCompletedStatus" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="true" />
+          <Property ID="IsInProgressStatus" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="false" />
+          <Property ID="IsNewStatus" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="false" />
+          <Property ID="IsTaskInsertionEnabled" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="false" />
+          <Property ID="IsChangeProcessingEnabled" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="true" />
+          <Property ID="CanAssignActivityImplementer" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" DefaultValue="true" />
+          <Property ID="TaskInsertionTag" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="4000" MinLength="0" Required="false" />
+          <Property ID="TaskActivityPrefix" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="2" MinLength="0" Required="false" />
+          <Property ID="ActivityStageInsertionEnum" Type="enum" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" EnumType="Activity!ActivityStageEnum" />
+          <Property ID="ConnectorId" Type="guid" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Microsoft.SystemCenter.Connector.ProjectServer" Accessibility="Public" Abstract="false" Base="LinkingFramework.Library!System.LinkingFramework.DataSource" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="ProjectServerURL" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="4000" MinLength="0" Required="false" />
+          <Property ID="RunAsAccount" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="1024" MinLength="0" Required="false" />
+          <Property ID="IsFrequencySchedule" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" />
+          <Property ID="IsO365" Type="bool" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" />
+        </ClassType>
+        <ClassType ID="Cireson.ProjectAutomation.Project" Accessibility="Public" Abstract="false" Base="System!System.ConfigItem" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="GUID" Type="guid" AutoIncrement="false" Key="true" CaseSensitive="false" MaxLength="256" MinLength="0" Required="true" Scale="0" />
+          <Property ID="ProjectCreatedDate" Type="datetime" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="ProjectLastModified" Type="datetime" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="ProjectStartDate" Type="datetime" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="ProjectEndDate" Type="datetime" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="PercentComplete" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="ProjectWebUrl" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="4096" MinLength="0" Required="false" Scale="0" />
+          <Property ID="Description" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="4096" MinLength="0" Required="false" Scale="0" />
+          <Property ID="Title" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="ProjectCalendar" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="NextMilestone" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="ProjectStatus" Type="enum" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" EnumType="Cireson.ProjectAutomation.ProjectStatusEnum" />
+        </ClassType>
+        <ClassType ID="Cireson.ProjectAutomation.ProjectTask.Activity" Accessibility="Public" Abstract="false" Base="Activity!System.WorkItem.Activity" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="TaskGUID" Type="guid" AutoIncrement="false" Key="true" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="PercentComplete" Type="int" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" />
+        </ClassType>
+      </ClassTypes>
+      <RelationshipTypes>
+        <RelationshipType ID="Cireson.ProjectAutomation.ProjectHasOwner" Accessibility="Public" Abstract="false" Base="System!System.Reference">
+          <Source ID="ProjectHasOwner" MinCardinality="0" MaxCardinality="2147483647" Type="Cireson.ProjectAutomation.Project" />
+          <Target ID="UserOwnsProject" MinCardinality="0" MaxCardinality="1" Type="WindowsLibrary!Microsoft.AD.UserBase" />
+        </RelationshipType>
+        <RelationshipType ID="System.ProjectConfigItemRelatesToProjectConnector" Accessibility="Public" Abstract="false" Base="System!System.Reference">
+          <Source ID="ProjectConnectorHasCI" MinCardinality="0" MaxCardinality="2147483647" Type="Microsoft.SystemCenter.Connector.ProjectServer" />
+          <Target ID="ProjectRelatedToConnector" MinCardinality="0" MaxCardinality="2147483647" Type="Cireson.ProjectAutomation.Project" />
+        </RelationshipType>
+        <RelationshipType ID="Cireson.ProjectAutomation.WorkItemHasProject" Accessibility="Public" Abstract="false" Base="System!System.Reference">
+          <Source ID="WorkItemHasProject" MinCardinality="0" MaxCardinality="2147483647" Type="WorkItem!System.WorkItem" />
+          <Target ID="ProjectRelatedToWorkItem" MinCardinality="0" MaxCardinality="1" Type="Cireson.ProjectAutomation.Project" />
+        </RelationshipType>
+        <RelationshipType ID="Cireson.ProjectAutomation.ProjectHasTask" Accessibility="Public" Abstract="false" Base="System!System.Reference">
+          <Source ID="ProjectHasTask" MinCardinality="0" MaxCardinality="1" Type="Cireson.ProjectAutomation.Project" />
+          <Target ID="TaskRelatedToProject" MinCardinality="0" MaxCardinality="2147483647" Type="Cireson.ProjectAutomation.ProjectTask.Activity" />
+        </RelationshipType>
+      </RelationshipTypes>
+      <EnumerationTypes>
+        <EnumerationValue ID="Cireson.ProjectAutomation.ProjectTasks" Accessibility="Public" />
+        <EnumerationValue ID="Cireson.ProjectAutomation.ProjectStatusEnum" Accessibility="Public" />
+        <EnumerationValue ID="Cireson.ProjectAutomation.ProjectStatusEnum.New" Accessibility="Public" Parent="Cireson.ProjectAutomation.ProjectStatusEnum" Ordinal="0" />
+        <EnumerationValue ID="Cireson.ProjectAutomation.ProjectStatusEnum.InProgress" Accessibility="Public" Parent="Cireson.ProjectAutomation.ProjectStatusEnum" Ordinal="1" />
+        <EnumerationValue ID="Cireson.ProjectAutomation.ProjectStatusEnum.Completed" Accessibility="Public" Parent="Cireson.ProjectAutomation.ProjectStatusEnum" Ordinal="2" />
+      </EnumerationTypes>
+      <TypeProjections>
+        <TypeProjection ID="Cireson.ProjectAutomation.ConnectorRelatesToProjects.ProjectionType" Accessibility="Public" Type="Microsoft.SystemCenter.Connector.ProjectServer" >
+          <Component Path="$Context/Path[Relationship='System.ProjectConfigItemRelatesToProjectConnector']$" Alias="ConnectorHasProjects" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.Project.ProjectionType" Accessibility="Public" Type="Cireson.ProjectAutomation.Project" >
+          <Component Path="$Context/Path[Relationship='Cireson.ProjectAutomation.ProjectHasOwner']$" Alias="ProjectHasOwner" />
+          <Component Path="$Context/Path[Relationship='Cireson.ProjectAutomation.ProjectHasTask']$" Alias="ProjectHasTask" />
+          <Component Path="$Context/Path[Relationship='WorkItem!System.WorkItemRelatesToConfigItem' SeedRole='Target']$" Alias="ImpactedWorkItem" />
+          <Component Path="$Context/Path[Relationship='WorkItem!System.WorkItemAboutConfigItem' SeedRole='Target']$" Alias="RelatedWorkItem" />
+          <Component Path="$Context/Path[Relationship='SupportingItem!System.ConfigItemHasFileAttachment']$" Alias="FileAttachment">
+            <Component Path="$Target/Path[Relationship='SupportingItem!System.FileAttachmentAddedByUser']$" Alias="FileAttachmentAddedBy" />
+          </Component>
+          <Component Path="$Context/Path[Relationship='System!System.ConfigItemRelatesToConfigItem']$" Alias="RelatedConfigItem" />
+          <Component Path="$Context/Path[Relationship='System!System.ConfigItemRelatesToConfigItem' SeedRole='Target']$" Alias="RelatedConfigItemSource" />
+          <Component Path="$Context/Path[Relationship='CoreKnowledge!System.EntityLinksToKnowledgeDocument']$" Alias="RelatedKnowledgeArticles" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ProjectTask.Activity.ProjectionType" Accessibility="Public" Type="Cireson.ProjectAutomation.ProjectTask.Activity" >
+          <Component Path="$Target/Path[Relationship='Cireson.ProjectAutomation.WorkItemHasProject']$" Alias="RelatedProject" />
+          <Component Path="$Target/Path[Relationship='WorkItem!System.WorkItemRelatesToConfigItem' TypeConstraint='WindowsLibrary!Microsoft.AD.UserBase']$" Alias="RelatedResource" />
+          <Component Path="$Target/Path[Relationship='Activity!System.WorkItemContainsActivity' SeedRole='Target']$" Alias="ParentWorkItem" />
+          <Component Path="$Target/Path[Relationship='WorkItem!System.WorkItemCreatedByUser']$" Alias="ActivityCreatedBy" />
+          <Component Path="$Target/Path[Relationship='WorkItem!System.WorkItemAssignedToUser']$" Alias="ActivityAssignedTo" />
+          <Component Path="$Target/Path[Relationship='WorkItem!System.WorkItemAboutConfigItem']$" Alias="ActivityAboutConfigItem" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.Project.Views.ProjectionType" Accessibility="Public" Type="Cireson.ProjectAutomation.Project" >
+          <Component Path="$Context/Path[Relationship='Cireson.ProjectAutomation.ProjectHasOwner']$" Alias="ProjectHasOwner" /> 
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType" Accessibility="Public" Type="Cireson.ProjectAutomation.ProjectTask.Activity" >
+          <Component Path="$Context/Path[Relationship='Cireson.ProjectAutomation.WorkItemHasProject']$" Alias="RelatedProject" />
+          <Component Path="$Context/Path[Relationship='WorkItem!System.WorkItemAssignedToUser' TypeConstraint='WindowsLibrary!Microsoft.AD.UserBase']$" Alias="PrimaryResource" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ChangeRequestHasProject.ProjectionType" Accessibility="Public" Type="ChangeLibrary!System.WorkItem.ChangeRequest" >
+          <Component Path="$Context/Path[Relationship='WorkItem!System.WorkItemRelatesToConfigItem' TypeConstraint='Cireson.ProjectAutomation.Project']$" Alias="RelatedProject" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ChangeRequestHasProjectAndDependentActivities.ProjectionType" Accessibility="Public" Type="ChangeLibrary!System.WorkItem.ChangeRequest" >
+          <Component Path="$Target/Path[Relationship='WorkItem!System.WorkItemRelatesToConfigItem' TypeConstraint='Cireson.ProjectAutomation.Project']$" Alias="RelatedProject" />
+          <Component Path="$Target/Path[Relationship='Activity!System.WorkItemContainsActivity' TypeConstraint='Activity!System.WorkItem.Activity.DependentActivity']$" Alias="DependentActivity" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ReleaseRecordHasProject.ProjectionType" Accessibility="Public" Type="ReleaseLibrary!System.WorkItem.ReleaseRecord" >
+          <Component Path="$Context/Path[Relationship='WorkItem!System.WorkItemRelatesToConfigItem' TypeConstraint='Cireson.ProjectAutomation.Project']$" Alias="RelatedProject" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ProjectTaskActivityRelatesToProject.ProjectionType" Accessibility="Public" Type="Cireson.ProjectAutomation.ProjectTask.Activity" >
+          <Component Path="$Context/Path[Relationship='Cireson.ProjectAutomation.WorkItemHasProject']$" Alias="RelatedProject" />
+        </TypeProjection>
+        <TypeProjection ID="Cireson.ProjectAutomation.ProjectTaskActivityHasResource.ProjectionType" Accessibility="Public" Type="Cireson.ProjectAutomation.ProjectTask.Activity" >
+          <Component Path="$Context/Path[Relationship='WorkItem!System.WorkItemRelatesToConfigItem' TypeConstraint='WindowsLibrary!Microsoft.AD.UserBase']$" Alias="RelatedResource" />
+        </TypeProjection>
+      </TypeProjections>
+    </EntityTypes>
+  </TypeDefinitions>
+  <Categories>
+    <Category ID="Cireson.ProjectAutomation.Library.Category" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.ManagementPack">
+      <ManagementPackName>Cireson.ProjectAutomation.Library</ManagementPackName>
+      <ManagementPackVersion>1.0.0.0</ManagementPackVersion>
+      <ManagementPackPublicKeyToken>98ba2176e2a9efbc</ManagementPackPublicKeyToken>
+    </Category>
+    <Category ID="Cireson.ProjectAutomation.Library.EditConnector.Task.DoubleClick.Category" Target="Cireson.ProjectAutomation.Library.EditConnector.Task" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.DoubleClickTask" />
+    <Category ID="Cireson.Connector.ProjectServer.Settings.Task.Category" Target="Cireson.Connector.ProjectServer.Settings.Task" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.DoubleClickTask" />
+    <Category ID="Cireson.ProjectAutomation.AllProjects.Tasks.Category" Target="View.AllProjects" Value="Cireson.ProjectAutomation.ProjectTasks" />
+    <Category ID="Cireson.ProjectAutomation.AllProjects.Views.Category" Target="View.AllProjects" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.ViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.AllMyProjects.Tasks.Category" Target="View.AllMyProjects" Value="Cireson.ProjectAutomation.ProjectTasks" />
+    <Category ID="Cireson.ProjectAutomation.AllMyProjects.Views.Category" Target="View.AllMyProjects" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.ViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.MyInProgressProjects.Tasks.Category" Target="View.MyInProgressProjects" Value="Cireson.ProjectAutomation.ProjectTasks" />
+    <Category ID="Cireson.ProjectAutomation.MyInProgressProjects.Views.Category" Target="View.MyInProgressProjects" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.ViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.NewProjects.Tasks.Category" Target="View.NewProjects" Value="Cireson.ProjectAutomation.ProjectTasks" />
+    <Category ID="Cireson.ProjectAutomation.NewProjects.Views.Category" Target="View.NewProjects" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.ViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.InProgressProjects.Tasks.Category" Target="View.InProgressProjects" Value="Cireson.ProjectAutomation.ProjectTasks" />
+    <Category ID="Cireson.ProjectAutomation.InProgressProjects.Views.Category" Target="View.InProgressProjects" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.ViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.CompletedProjects.Tasks.Category" Target="View.CompletedProjects" Value="Cireson.ProjectAutomation.ProjectTasks" />
+    <Category ID="Cireson.ProjectAutomation.CompletedProjects.Views.Category" Target="View.CompletedProjects" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.UI.Console.ViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.ProjectStatusEnum.Tasks.Category" Target="Cireson.ProjectAutomation.ProjectStatusEnum" Value="Authoring!Microsoft.EnterpriseManagement.ServiceManager.UI.Authoring.EnumerationViewTasks" />
+    <Category ID="Cireson.ProjectAutomation.ProjectStatusEnum.Visible.Category" Target="Cireson.ProjectAutomation.ProjectStatusEnum" Value="System!VisibleToUser" />
+  </Categories>
+  <Presentation>
+    <Forms>
+      <Form ID="Cireson.ProjectAutomation.ProjectTask.Form" Accessibility="Public" Target="Cireson.ProjectAutomation.ProjectTask.Activity.ProjectionType" Assembly="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Assembly" TypeName="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Forms.TaskForm" >
+        <Category>Form</Category>
+        <FormStrings>
+          <FormString ID="lblNoLicense">
+            $MPElement[Name="strNoLicense"]$
+          </FormString>
+          <FormString ID="lblActivityType">
+            $MPElement[Name="formLabelActivityType"]$
+          </FormString>
+          <FormString ID="lblParentWorkItem">
+            $MPElement[Name="formLabelParentWorkItem"]$
+          </FormString>
+          <FormString ID="lblCreatedDate">
+            $MPElement[Name="formLabelCreatedDate"]$
+          </FormString>
+          <FormString ID="tabGeneral">
+            $MPElement[Name="formTabGeneral"]$
+          </FormString>
+          <FormString ID="tabHistory">
+            $MPElement[Name="formTabHistory"]$
+          </FormString>
+          <FormString ID="lblTitle">
+            $MPElement[Name="formLabelTitle"]$
+          </FormString>
+          <FormString ID="lblDescription">
+            $MPElement[Name="formLabelDescription"]$
+          </FormString>
+          <FormString ID="lblActivityImplementer">
+            $MPElement[Name="formLabelActivityImplementer"]$
+          </FormString>
+          <FormString ID="lblArea">
+            $MPElement[Name="formLabelArea"]$
+          </FormString>
+          <FormString ID="lblPriority">
+            $MPElement[Name="formLabelPriority"]$
+          </FormString>
+          <FormString ID="lblStage">
+            $MPElement[Name="formLabelStage"]$
+          </FormString>
+          <FormString ID="lblScheduledStartDate">
+            $MPElement[Name="formLabelScheduledStartDate"]$
+          </FormString>
+          <FormString ID="lblScheduledEndDate">
+            $MPElement[Name="formLabelScheduledEndDate"]$
+          </FormString>
+          <FormString ID="lblRelatedProject">
+            $MPElement[Name="formLabelRelatedProject"]$
+          </FormString>
+          <FormString ID="lblNotes">
+            $MPElement[Name="formLabelNotes"]$
+          </FormString>
+          <FormString ID="lblResources">
+            $MPElement[Name="formLabelResources"]$
+          </FormString>
+          <FormString ID="gvcName">
+            $MPElement[Name="gridColumnHeaderName"]$
+          </FormString>
+          <FormString ID="gvcUserName">
+            $MPElement[Name="gridColumnHeaderUserName"]$
+          </FormString>
+          <FormString ID="gvcLastModified">
+            $MPElement[Name="gridColumnHeaderLastModified"]$
+          </FormString>
+          <FormString ID="btnOpen">
+            $MPElement[Name="buttonOpen"]$
+          </FormString>
+        </FormStrings>
+      </Form>
+      <Form ID="Cireson.ProjectAutomation.Project.Form" Accessibility="Public" Target="Cireson.ProjectAutomation.Project.ProjectionType" Assembly="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Assembly" TypeName="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Forms.ProjectForm" >
+        <Category>Form</Category>
+        <FormStrings>
+          <FormString ID="lblNoLicense">
+            $MPElement[Name="strNoLicense"]$
+          </FormString>
+          <FormString ID="tabGeneral">
+            $MPElement[Name="formTabGeneral"]$
+          </FormString>
+          <FormString ID="tabProjectSite">
+            $MPElement[Name="formTabProjectSite"]$
+          </FormString>
+          <FormString ID="tabRelatedItems">
+            $MPElement[Name="formTabRelatedItems"]$
+          </FormString>
+          <FormString ID="tabHistory">
+            $MPElement[Name="formTabHistory"]$
+          </FormString>
+          <FormString ID="expanderInformation">
+            $MPElement[Name="formExpanderInformation"]$
+          </FormString>
+          <FormString ID="expanderDetails">
+            $MPElement[Name="formExpanderDetails"]$
+          </FormString>
+          <FormString ID="expanderNotes">
+            $MPElement[Name="formExpanderNotes"]$
+          </FormString>
+          <FormString ID="lblTitle">
+            $MPElement[Name="formLabelTitle"]$
+          </FormString>
+          <FormString ID="lblDescription">
+            $MPElement[Name="formLabelDescription"]$
+          </FormString>
+          <FormString ID="lblProjectCreatedDate">
+            $MPElement[Name="formLabelProjectCreatedDate"]$
+          </FormString>
+          <FormString ID="lblProjectStartDate">
+            $MPElement[Name="formLabelProjectStartDate"]$
+          </FormString>
+          <FormString ID="lblProjectEndDate">
+            $MPElement[Name="formLabelProjectEndDate"]$
+          </FormString>
+          <FormString ID="lblProjectOwner">
+            $MPElement[Name="formLabelProjectOwner"]$
+          </FormString>
+          <FormString ID="lblPercentComplete">
+            $MPElement[Name="formLabelPercentComplete"]$
+          </FormString>
+          <FormString ID="lblProjectStatus">
+            $MPElement[Name="formLabelProjectStatus"]$
+          </FormString>
+          <FormString ID="lblRelatedTasks">
+            $MPElement[Name="formLabelProjectTasks"]$
+          </FormString>
+          <FormString ID="gvcTitle">
+            $MPElement[Name="gridColumnHeaderTitle"]$
+          </FormString>
+          <FormString ID="gvcStatus">
+            $MPElement[Name="gridColumnHeaderStatus"]$
+          </FormString>
+          <FormString ID="gvcLastModified">
+            $MPElement[Name="gridColumnHeaderLastModified"]$
+          </FormString>
+          <FormString ID="btnOpen">
+            $MPElement[Name="buttonOpen"]$
+          </FormString>
+        </FormStrings>
+      </Form>
+    </Forms>
+    <ConsoleTasks>
+      <ConsoleTask ID="Cireson.ProjectAutomation.Library.CreateConnectorTask" Accessibility="Public" Enabled="true" Target="UIAdmin!Microsoft.EnterpriseManagement.ServiceManager.UI.Administration.Task.CreateConnector" RequireOutput="false">
+        <Assembly>Console!SdkDataAccessAssembly</Assembly>
+        <Handler>Microsoft.EnterpriseManagement.UI.SdkDataAccess.ConsoleTaskHandler</Handler>
+        <Parameters>
+          <Argument Name="Assembly">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks</Argument>
+          <Argument Name="Type">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.ProjectConnector</Argument>
+          <Argument>Create</Argument>
+        </Parameters>
+      </ConsoleTask>
+      <ConsoleTask ID="Cireson.ProjectAutomation.Library.EditConnector.Task" Accessibility="Public" Enabled="true" Target="Microsoft.SystemCenter.Connector.ProjectServer" RequireOutput="false">
+        <Assembly>Console!SdkDataAccessAssembly</Assembly>
+        <Handler>Microsoft.EnterpriseManagement.UI.SdkDataAccess.ConsoleTaskHandler</Handler>
+        <Parameters>
+          <Argument Name="Assembly">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks</Argument>
+          <Argument Name="Type">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.ProjectConnector</Argument>
+          <Argument>Edit</Argument>
+        </Parameters>
+      </ConsoleTask>
+      <ConsoleTask ID="Cireson.ProjectAutomation.Library.DeleteConnector.Task" Accessibility="Public" Enabled="true" Target="Microsoft.SystemCenter.Connector.ProjectServer" RequireOutput="false">
+        <Assembly>Console!SdkDataAccessAssembly</Assembly>
+        <Handler>Microsoft.EnterpriseManagement.UI.SdkDataAccess.ConsoleTaskHandler</Handler>
+        <Parameters>
+          <Argument Name="Assembly">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks</Argument>
+          <Argument Name="Type">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.ProjectConnector</Argument>
+          <Argument>Delete</Argument>
+        </Parameters>
+      </ConsoleTask>
+      <ConsoleTask ID="Cireson.Connector.ProjectServer.Settings.Task" Accessibility="Public" Enabled="true" Target="Microsoft.SystemCenter.Connector.ProjectServer.Settings" RequireOutput="false">
+        <Assembly>Console!SdkDataAccessAssembly</Assembly>
+        <Handler>Microsoft.EnterpriseManagement.UI.SdkDataAccess.ConsoleTaskHandler</Handler>
+        <Parameters>
+          <Argument Name="Assembly">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks</Argument>
+          <Argument Name="Type">Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.AdminSettings</Argument>
+        </Parameters>
+      </ConsoleTask>
+    </ConsoleTasks>
+    <Views>
+      <View ID="View.TaskActivitiesCancelled" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" FullUpdateFrequency="1" Streaming="true" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpressionLeft>
+                            <Property>$Context/Property[Type='Activity!System.WorkItem.Activity']/Status$</Property>
+                          </ValueExpressionLeft>
+                          <Operator>Equal</Operator>
+                          <ValueExpressionRight>
+                            <Value>$MPElement[Name="Activity!ActivityStatusEnum.Cancelled"]$</Value>
+                          </ValueExpressionRight>
+                        </SimpleExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.TaskActivitiesFailed" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" FullUpdateFrequency="1" Streaming="true" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpressionLeft>
+                            <Property>$Context/Property[Type='Activity!System.WorkItem.Activity']/Status$</Property>
+                          </ValueExpressionLeft>
+                          <Operator>Equal</Operator>
+                          <ValueExpressionRight>
+                            <Value>$MPElement[Name="Activity!ActivityStatusEnum.Failed"]$</Value>
+                          </ValueExpressionRight>
+                        </SimpleExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.TaskActivitiesCompleted" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" FullUpdateFrequency="1" Streaming="true" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpressionLeft>
+                            <Property>$Context/Property[Type='Activity!System.WorkItem.Activity']/Status$</Property>
+                          </ValueExpressionLeft>
+                          <Operator>Equal</Operator>
+                          <ValueExpressionRight>
+                            <Value>$MPElement[Name="Activity!ActivityStatusEnum.Completed"]$</Value>
+                          </ValueExpressionRight>
+                        </SimpleExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.TaskActivitiesActive" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" FullUpdateFrequency="1" Streaming="true" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpressionLeft>
+                            <Property>$Context/Property[Type='Activity!System.WorkItem.Activity']/Status$</Property>
+                          </ValueExpressionLeft>
+                          <Operator>Equal</Operator>
+                          <ValueExpressionRight>
+                            <Value>$MPElement[Name="Activity!ActivityStatusEnum.Active"]$</Value>
+                          </ValueExpressionRight>
+                        </SimpleExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.TaskActivitiesPending" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" FullUpdateFrequency="1" Streaming="true" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpressionLeft>
+                            <Property>$Context/Property[Type='Activity!System.WorkItem.Activity']/Status$</Property>
+                          </ValueExpressionLeft>
+                          <Operator>Equal</Operator>
+                          <ValueExpressionRight>
+                            <Value>$MPElement[Name="Activity!ActivityStatusEnum.OnHold"]$</Value>
+                          </ValueExpressionRight>
+                        </SimpleExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.TaskActivitiesUnassigned" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" FullUpdateFrequency="1" Streaming="true" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <UnaryExpression>
+                          <ValueExpression>
+                            <GenericProperty Path="$Context/Path[Relationship='WorkItem!System.WorkItemAssignedToUser' SeedRole='Source']$">Id</GenericProperty>
+                          </ValueExpression>
+                          <Operator>IsNull</Operator>
+                        </UnaryExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.MyTaskActivities" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="100" Streaming="true" IsRecurring="false" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" UpdateItemsAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" AppendItemsAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" RemoveItemsAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <QueryCriteria Adapter="omsdk://Adapters/Criteria" xmlns="http://tempuri.org/Criteria.xsd">
+            <Criteria>
+              <FreeformCriteria>
+                <Freeform>
+                  <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                    <Expression>
+                      <In>
+                        <GenericProperty Path="$Context/Path[Relationship='WorkItem!System.WorkItemAssignedToUser' SeedRole='Source']$">Id</GenericProperty>
+                        <Values>
+                          <Token>[me]</Token>
+                          <Token>[mygroups]</Token>
+                        </Values>
+                      </In>
+                    </Expression>
+                  </Criteria>
+                </Freeform>
+              </FreeformCriteria>
+            </Criteria>
+          </QueryCriteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.AllTaskActivities" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.ProjectTask.Activity" TypeID="Console!GridViewType" Visible="true">
+        <Category>NotUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="100" Streaming="true" IsRecurring="false" RecurrenceFrequency="{x:Static s:Int32.MaxValue}" UpdateItemsAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" AppendItemsAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" RemoveItemsAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.ProjectTask.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria />
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              <mux:Column Name="Id" DisplayMemberBinding="{Binding Path=Id, Mode=OneWay}" Width="100" DisplayName="View.Id" Property="Id" DataType="s:String" />
+              <mux:Column Name="Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="100" DisplayName="View.Title" Property="Title" DataType="s:String" />
+              <mux:Column Name="RelatedProject.DisplayName" DisplayMemberBinding="{Binding Path=RelatedProject.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.RelatedProject" Property="RelatedProject.DisplayName" DataType="s:String" />
+              <mux:Column Name="Priority" DisplayMemberBinding="{Binding Path=Priority.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Priority" Property="Priority.DisplayName" DataType="s:String" />
+              <mux:Column Name="ScheduledEndDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledEndDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledEndDate" Property="ScheduledEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ScheduledStartDate" DisplayMemberBinding="{datebinding:DateBinding Path=ScheduledStartDate, Mode=OneWay}" Width="100" DisplayName="View.ScheduledStartDate" Property="ScheduledStartDate" DataType="s:DateTime" />
+              <mux:Column Name="Stage" DisplayMemberBinding="{Binding Path=Stage.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Stage" Property="Stage.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.RelatedProject">$MPElement[Name="viewStringRelatedProject"]$</ViewString>
+            <ViewString ID="View.Priority">$MPElement[Name="viewStringPriority"]$</ViewString>
+            <ViewString ID="View.ScheduledEndDate">$MPElement[Name="viewStringScheduledEndDate"]$</ViewString>
+            <ViewString ID="View.ScheduledStartDate">$MPElement[Name="viewStringScheduledStartDate"]$</ViewString>
+            <ViewString ID="View.Stage">$MPElement[Name="viewStringStage"]$</ViewString>
+            <ViewString ID="View.Id">$MPElement[Name="viewStringId"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.AllProjects" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.Project" TypeID="Console!GridViewType" Visible="true" >
+        <Category>NoteUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="1" Streaming="true" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.Project.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria xmlns="http://tempuri.org/Criteria.xsd" Adapter="omsdk://Adapters/Criteria">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpressionLeft>
+                            <Property>$Context/Property[Type='System!System.ConfigItem']/ObjectStatus$</Property>
+                          </ValueExpressionLeft>
+                          <Operator>NotEqual</Operator>
+                          <ValueExpressionRight>
+                            <Value>{47101e64-237f-12c8-e3f5-ec5a665412fb}</Value>
+                          </ValueExpressionRight>
+                        </SimpleExpression>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:converters="clr-namespace:Converters;assembly=Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF" xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common">
+              <mux:Column Name="Project Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="200" DisplayName="View.Title" Property="ProjectTitle" DataType="s:String" />
+              <mux:Column Name="Start Date" DisplayMemberBinding="{Binding Path=ProjectStartDate, Mode=OneWay}" Width="150" DisplayName="View.StartDate" Property="ProjectStartDate" DataType="s:DateTime" />
+              <mux:Column Name="End Date" DisplayMemberBinding="{Binding Path=ProjectEndDate, Mode=OneWay}" Width="150" DisplayName="View.EndDate" Property="ProjectEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ProjectStatus.DisplayName" DisplayMemberBinding="{Binding Path=ProjectStatus.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Status" Property="ProjectStatus.DisplayName" DataType="s:String" />
+              <mux:Column Name="ProjectHasOwner.DisplayName" DisplayMemberBinding="{Binding Path=ProjectHasOwner.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Owner" Property="ProjectHasOwner.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.StartDate">$MPElement[Name="viewStringStartDate"]$</ViewString>
+            <ViewString ID="View.EndDate">$MPElement[Name="viewStringEndDate"]$</ViewString>
+            <ViewString ID="View.Status">$MPElement[Name="viewStringStatus"]$</ViewString>
+            <ViewString ID="View.Owner">$MPElement[Name="viewStringOwner"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.NewProjects" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.Project" TypeID="Console!GridViewType" Visible="true" >
+        <Category>NoteUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="1" Streaming="true" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.Project.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria xmlns="http://tempuri.org/Criteria.xsd" Adapter="omsdk://Adapters/Criteria">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <And>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='System!System.ConfigItem']/ObjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>NotEqual</Operator>
+                              <ValueExpressionRight>
+                                <Value>{47101e64-237f-12c8-e3f5-ec5a665412fb}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='Cireson.ProjectAutomation.Project']/ProjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>Equal</Operator>
+                              <ValueExpressionRight>
+                                <Value>{fec278c4-3761-1283-d4a6-6ca13320fe0e}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                        </And>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:converters="clr-namespace:Converters;assembly=Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF" xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common">
+              <mux:Column Name="Project Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="200" DisplayName="View.Title" Property="ProjectTitle" DataType="s:String" />
+              <mux:Column Name="Start Date" DisplayMemberBinding="{Binding Path=ProjectStartDate, Mode=OneWay}" Width="150" DisplayName="View.StartDate" Property="ProjectStartDate" DataType="s:DateTime" />
+              <mux:Column Name="End Date" DisplayMemberBinding="{Binding Path=ProjectEndDate, Mode=OneWay}" Width="150" DisplayName="View.EndDate" Property="ProjectEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ProjectHasOwner.DisplayName" DisplayMemberBinding="{Binding Path=ProjectHasOwner.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Owner" Property="ProjectHasOwner.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.StartDate">$MPElement[Name="viewStringStartDate"]$</ViewString>
+            <ViewString ID="View.EndDate">$MPElement[Name="viewStringEndDate"]$</ViewString>
+            <ViewString ID="View.Owner">$MPElement[Name="viewStringOwner"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.InProgressProjects" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.Project" TypeID="Console!GridViewType" Visible="true" >
+        <Category>NoteUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="1" Streaming="true" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.Project.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria xmlns="http://tempuri.org/Criteria.xsd" Adapter="omsdk://Adapters/Criteria">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <And>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='System!System.ConfigItem']/ObjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>NotEqual</Operator>
+                              <ValueExpressionRight>
+                                <Value>{47101e64-237f-12c8-e3f5-ec5a665412fb}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='Cireson.ProjectAutomation.Project']/ProjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>Equal</Operator>
+                              <ValueExpressionRight>
+                                <Value>{0e5da073-9d56-c418-a05b-4026bfdfe8b0}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                        </And>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:converters="clr-namespace:Converters;assembly=Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF" xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common">
+              <mux:Column Name="Project Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="200" DisplayName="View.Title" Property="ProjectTitle" DataType="s:String" />
+              <mux:Column Name="Start Date" DisplayMemberBinding="{Binding Path=ProjectStartDate, Mode=OneWay}" Width="150" DisplayName="View.StartDate" Property="ProjectStartDate" DataType="s:DateTime" />
+              <mux:Column Name="End Date" DisplayMemberBinding="{Binding Path=ProjectEndDate, Mode=OneWay}" Width="150" DisplayName="View.EndDate" Property="ProjectEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ProjectHasOwner.DisplayName" DisplayMemberBinding="{Binding Path=ProjectHasOwner.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Owner" Property="ProjectHasOwner.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.StartDate">$MPElement[Name="viewStringStartDate"]$</ViewString>
+            <ViewString ID="View.EndDate">$MPElement[Name="viewStringEndDate"]$</ViewString>
+            <ViewString ID="View.Owner">$MPElement[Name="viewStringOwner"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.CompletedProjects" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.Project" TypeID="Console!GridViewType" Visible="true" >
+        <Category>NoteUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="1" Streaming="true" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.Project.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria xmlns="http://tempuri.org/Criteria.xsd" Adapter="omsdk://Adapters/Criteria">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <And>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='System!System.ConfigItem']/ObjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>NotEqual</Operator>
+                              <ValueExpressionRight>
+                                <Value>{47101e64-237f-12c8-e3f5-ec5a665412fb}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='Cireson.ProjectAutomation.Project']/ProjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>Equal</Operator>
+                              <ValueExpressionRight>
+                                <Value>{08cbcd28-a84a-67fe-ce4b-4be2c5320b2a}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                        </And>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:converters="clr-namespace:Converters;assembly=Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF" xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common">
+              <mux:Column Name="Project Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="200" DisplayName="View.Title" Property="ProjectTitle" DataType="s:String" />
+              <mux:Column Name="Start Date" DisplayMemberBinding="{Binding Path=ProjectStartDate, Mode=OneWay}" Width="150" DisplayName="View.StartDate" Property="ProjectStartDate" DataType="s:DateTime" />
+              <mux:Column Name="End Date" DisplayMemberBinding="{Binding Path=ProjectEndDate, Mode=OneWay}" Width="150" DisplayName="View.EndDate" Property="ProjectEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ProjectHasOwner.DisplayName" DisplayMemberBinding="{Binding Path=ProjectHasOwner.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Owner" Property="ProjectHasOwner.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.StartDate">$MPElement[Name="viewStringStartDate"]$</ViewString>
+            <ViewString ID="View.EndDate">$MPElement[Name="viewStringEndDate"]$</ViewString>
+            <ViewString ID="View.Owner">$MPElement[Name="viewStringOwner"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.AllMyProjects" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.Project" TypeID="Console!GridViewType" Visible="true" >
+        <Category>NoteUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="1" Streaming="true" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.Project.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria xmlns="http://tempuri.org/Criteria.xsd" Adapter="omsdk://Adapters/Criteria">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <And>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='System!System.ConfigItem']/ObjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>NotEqual</Operator>
+                              <ValueExpressionRight>
+                                <Value>{47101e64-237f-12c8-e3f5-ec5a665412fb}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <GenericProperty Path="$Context/Path[Relationship='Cireson.ProjectAutomation.ProjectHasOwner']$">Id</GenericProperty>
+                              </ValueExpressionLeft>
+                              <Operator>Equal</Operator>
+                              <ValueExpressionRight>
+                                <Token>[me]</Token>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                        </And>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:converters="clr-namespace:Converters;assembly=Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF" xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common">
+              <mux:Column Name="Project Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="200" DisplayName="View.Title" Property="ProjectTitle" DataType="s:String" />
+              <mux:Column Name="Start Date" DisplayMemberBinding="{Binding Path=ProjectStartDate, Mode=OneWay}" Width="150" DisplayName="View.StartDate" Property="ProjectStartDate" DataType="s:DateTime" />
+              <mux:Column Name="End Date" DisplayMemberBinding="{Binding Path=ProjectEndDate, Mode=OneWay}" Width="150" DisplayName="View.EndDate" Property="ProjectEndDate" DataType="s:DateTime" />
+              <mux:Column Name="ProjectStatus.DisplayName" DisplayMemberBinding="{Binding Path=ProjectStatus.DisplayName, Mode=OneWay}" Width="100" DisplayName="View.Status" Property="ProjectStatus.DisplayName" DataType="s:String" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.StartDate">$MPElement[Name="viewStringStartDate"]$</ViewString>
+            <ViewString ID="View.EndDate">$MPElement[Name="viewStringEndDate"]$</ViewString>
+            <ViewString ID="View.Status">$MPElement[Name="viewStringStatus"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+      <View ID="View.MyInProgressProjects" Accessibility="Public" Enabled="true" Target="Cireson.ProjectAutomation.Project" TypeID="Console!GridViewType" Visible="true" >
+        <Category>NoteUsed</Category>
+        <Data>
+          <Adapters>
+            <Adapter AdapterName="dataportal:EnterpriseManagementObjectProjectionAdapter">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.EnterpriseManagementObjectProjectionAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="viewframework://Adapters/AdvancedList">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.ViewFramework</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.ViewFramework.AdvancedListSupportAdapter</AdapterType>
+            </Adapter>
+            <Adapter AdapterName="omsdk://Adapters/Criteria">
+              <AdapterAssembly>Microsoft.EnterpriseManagement.UI.SdkDataAccess</AdapterAssembly>
+              <AdapterType>Microsoft.EnterpriseManagement.UI.SdkDataAccess.DataAdapters.SdkCriteriaAdapter</AdapterType>
+            </Adapter>
+          </Adapters>
+          <ItemsSource>
+            <AdvancedListSupportClass xmlns="clr-namespace:Microsoft.EnterpriseManagement.UI.ViewFramework;assembly=Microsoft.EnterpriseManagement.UI.ViewFramework" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" DataTypeName="" AdapterName="viewframework://Adapters/AdvancedList" FullUpdateAdapter="dataportal:EnterpriseManagementObjectProjectionAdapter" DataSource="mom:ManagementGroup" FullUpdateFrequency="1" Streaming="true" IsRecurring="true" RecurrenceFrequency="{x:Static s:Int32.MaxValue}">
+              <AdvancedListSupportClass.Parameters>
+                <QueryParameter Parameter="TypeProjectionId" Value="$MPElement[Name='Cireson.ProjectAutomation.Project.Views.ProjectionType']$" />
+              </AdvancedListSupportClass.Parameters>
+            </AdvancedListSupportClass>
+          </ItemsSource>
+          <Criteria>
+            <QueryCriteria xmlns="http://tempuri.org/Criteria.xsd" Adapter="omsdk://Adapters/Criteria">
+              <Criteria>
+                <FreeformCriteria>
+                  <Freeform>
+                    <Criteria xmlns="http://Microsoft.EnterpriseManagement.Core.Criteria/">
+                      <Expression>
+                        <And>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='System!System.ConfigItem']/ObjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>NotEqual</Operator>
+                              <ValueExpressionRight>
+                                <Value>{47101e64-237f-12c8-e3f5-ec5a665412fb}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <Property>$Context/Property[Type='Cireson.ProjectAutomation.Project']/ProjectStatus$</Property>
+                              </ValueExpressionLeft>
+                              <Operator>Equal</Operator>
+                              <ValueExpressionRight>
+                                <Value>{0e5da073-9d56-c418-a05b-4026bfdfe8b0}</Value>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                          <Expression>
+                            <SimpleExpression>
+                              <ValueExpressionLeft>
+                                <GenericProperty Path="$Context/Path[Relationship='Cireson.ProjectAutomation.ProjectHasOwner']$">Id</GenericProperty>
+                              </ValueExpressionLeft>
+                              <Operator>Equal</Operator>
+                              <ValueExpressionRight>
+                                <Token>[me]</Token>
+                              </ValueExpressionRight>
+                            </SimpleExpression>
+                          </Expression>
+                        </And>
+                      </Expression>
+                    </Criteria>
+                  </Freeform>
+                </FreeformCriteria>
+              </Criteria>
+            </QueryCriteria>
+          </Criteria>
+        </Data>
+        <Presentation>
+          <Columns>
+            <mux:ColumnCollection xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:converters="clr-namespace:Converters;assembly=Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF" xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:mux="http://schemas.microsoft.com/SystemCenter/Common/UI/Views/GridView" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:datebinding="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:data="clr-namespace:Microsoft.EnterpriseManagement.UI.Extensions;assembly=Microsoft.EnterpriseManagement.UI.Extensions" xmlns:appCommon="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.Application.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.Application.Common" xmlns:toolbox="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfToolbox;assembly=Microsoft.EnterpriseManagement.UI.FormsInfra" xmlns:slaBinding="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.SLA.Common;assembly=Microsoft.EnterpriseManagement.ServiceManager.SLA.Common">
+              <mux:Column Name="Project Title" DisplayMemberBinding="{Binding Path=Title, Mode=OneWay}" Width="200" DisplayName="View.Title" Property="ProjectTitle" DataType="s:String" />
+              <mux:Column Name="Start Date" DisplayMemberBinding="{Binding Path=ProjectStartDate, Mode=OneWay}" Width="150" DisplayName="View.StartDate" Property="ProjectStartDate" DataType="s:DateTime" />
+              <mux:Column Name="End Date" DisplayMemberBinding="{Binding Path=ProjectEndDate, Mode=OneWay}" Width="150" DisplayName="View.EndDate" Property="ProjectEndDate" DataType="s:DateTime" />
+              <mux:Column Name="Last Modified" DisplayMemberBinding="{Binding Path=$LastModified$, Mode=OneWay}" Width="150" DisplayName="View.LastModified" Property="$LastModified$" DataType="s:DateTime" />
+            </mux:ColumnCollection>
+          </Columns>
+          <AdditionalProperties />
+          <ViewStrings>
+            <ViewString ID="View.Title">$MPElement[Name="viewStringTitle"]$</ViewString>
+            <ViewString ID="View.StartDate">$MPElement[Name="viewStringStartDate"]$</ViewString>
+            <ViewString ID="View.EndDate">$MPElement[Name="viewStringEndDate"]$</ViewString>
+            <ViewString ID="View.LastModified">$MPElement[Name="viewStringLastModified"]$</ViewString>
+          </ViewStrings>
+        </Presentation>
+      </View>
+    </Views>
+    <Folders>
+      <Folder ID="Folder.Projects" Accessibility="Public" ParentFolder="ConfigurationManagement!ServiceManager.Console.ConfigurationManagement.ConfigItem.Root" />
+      <Folder ID="Folder.Activities" Accessibility="Public" ParentFolder="ActivityManagement!ServiceManager.Console.ActivityManagement" />
+    </Folders>
+    <FolderItems>
+      <FolderItem ElementID="View.TaskActivitiesCancelled" ID="View.TaskActivitiesCancelled.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.TaskActivitiesFailed" ID="View.TaskActivitiesFailed.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.TaskActivitiesCompleted" ID="View.TaskActivitiesCompleted.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.TaskActivitiesActive" ID="View.TaskActivitiesActive.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.TaskActivitiesPending" ID="View.TaskActivitiesPending.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.TaskActivitiesUnassigned" ID="View.TaskActivitiesUnassigned.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.MyTaskActivities" ID="View.MyTaskActivities.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.AllTaskActivities" ID="View.AllTaskActivities.Item" Folder="Folder.Activities" />
+      <FolderItem ElementID="View.AllProjects" ID="View.AllProjects.Item" Folder="Folder.Projects" />
+      <FolderItem ElementID="View.AllMyProjects" ID="View.AllMyProjects.Item" Folder="Folder.Projects" />
+      <FolderItem ElementID="View.MyInProgressProjects" ID="View.MyInProgressProjects.Item" Folder="Folder.Projects" />
+      <FolderItem ElementID="View.NewProjects" ID="View.InProgressProjects.Item" Folder="Folder.Projects" />
+      <FolderItem ElementID="View.InProgressProjects" ID="View.InProgressProjects.Item" Folder="Folder.Projects" />
+      <FolderItem ElementID="View.CompletedProjects" ID="View.InProgressProjects.Item" Folder="Folder.Projects" />
+    </FolderItems>
+    <ImageReferences>
+      <ImageReference ElementID="View.TaskActivitiesCancelled" ImageID="Image.CancelledActivities.16x16" />
+      <ImageReference ElementID="View.TaskActivitiesFailed" ImageID="Image.FailedActivities.16x16" />
+      <ImageReference ElementID="View.TaskActivitiesCompleted" ImageID="Image.CompletedActivities.16x16" />
+      <ImageReference ElementID="View.TaskActivitiesActive" ImageID="Image.ActiveActivities.16x16" />
+      <ImageReference ElementID="View.TaskActivitiesPending" ImageID="Image.PendingActivities.16x16" />
+      <ImageReference ElementID="View.TaskActivitiesUnassigned" ImageID="Image.UnassignedActivities.16x16" />
+      <ImageReference ElementID="View.MyTaskActivities" ImageID="Image.MyActivities.16x16" />
+      <ImageReference ElementID="View.AllTaskActivities" ImageID="Image.AllActivites.16x16" />
+      <ImageReference ElementID="Folder.Activities" ImageID="Image.Activities.16x16" />
+      <ImageReference ElementID="View.AllProjects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="View.AllMyProjects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="View.MyInProgressProjects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="View.NewProjects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="View.InProgressProjects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="View.CompletedProjects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="Folder.Projects" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="Cireson.ProjectAutomation.Library.CreateConnectorTask" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="Cireson.Connector.ProjectServer.Settings.Task" ImageID="Image.Cireson.16x16" />
+      <ImageReference ElementID="Microsoft.SystemCenter.Connector.ProjectServer.Settings" ImageID="Image.Cireson.16x16" />
+    </ImageReferences>
+    <StringResources>
+      <StringResource ID="strTitle" />
+      <StringResource ID="strEditConnector" />
+      <StringResource ID="strCreateConnector" />
+      <StringResource ID="strDeleteConnector" />
+      <StringResource ID="strGeneral" />
+      <StringResource ID="strGeneralTitle" />
+      <StringResource ID="strConnectionDetails" />
+      <StringResource ID="strName" />
+      <StringResource ID="strDescription" />
+      <StringResource ID="strPwaURL" />
+      <StringResource ID="strCreateBtn" />
+      <StringResource ID="strPWAConnectionPage" />
+      <StringResource ID="strTestConnection" />
+      <StringResource ID="strCredentialsTitle"/>
+      <StringResource ID="strUsername" />
+      <StringResource ID="strPassword" />
+      <StringResource ID="strDomain" />
+      <StringResource ID="strOK" />
+      <StringResource ID="strCancel" />
+      <StringResource ID="strResults" />
+      <StringResource ID="strResultSuccess" />
+      <StringResource ID="strConnectorTitle" />
+      <StringResource ID="strConnectSuccess"/>
+      <StringResource ID="strConnectFailed" />
+      <StringResource ID="strClose" />
+      <StringResource ID="strO365" />
+      <StringResource ID="strSuccessCreate" />
+      <StringResource ID="strConfirmDelete" />
+      <StringResource ID="strDailySchedule" />
+      <StringResource ID="strSunday" />
+      <StringResource ID="strMonday" />
+      <StringResource ID="strTuesday" />
+      <StringResource ID="strWednesday" />
+      <StringResource ID="strThursday" />
+      <StringResource ID="strFriday" />
+      <StringResource ID="strSaturday" />
+      <StringResource ID="strScheduledTime" />
+      <StringResource ID="strFrequencySchedule" />
+      <StringResource ID="strFrequencyInterval" />
+      <StringResource ID="strSchedulePage" />
+      <StringResource ID="strHours" />
+      <StringResource ID="strMinutes" />
+      <StringResource ID="strEnableConnector" />
+      <StringResource ID="strDataRetentionSettings" />
+      <StringResource ID="strEnableGrooming" />
+      <StringResource ID="strDays" />
+      <StringResource ID="strGroomingDescription" />
+      <StringResource ID="strRetentionTime" />
+      <StringResource ID="strSettings" />
+      <StringResource ID="strGroomingSettings" />
+      <StringResource ID="strStatusSettings" />
+      <StringResource ID="strProjectStatusSetting" />
+      <StringResource ID="strProjectStatusSettingDescription" />
+      <StringResource ID="strProjectNewStatusSetting" />
+      <StringResource ID="strProjectInProgressStatusSetting" />
+      <StringResource ID="strProjectCompletedStatusSetting" />
+      <StringResource ID="strProjectTasksSettings" />
+      <StringResource ID="strProjectTasksSettingsDescription" />
+      <StringResource ID="strEnableProjectTasksInsertion" />
+      <StringResource ID="strTasksTag" />
+      <StringResource ID="strTaskActivityPrefix" />
+      <StringResource ID="strTasksTagDescription" />
+      <StringResource ID="strTasksInsertIndexDescription1" />
+      <StringResource ID="strTasksInsertIndexDescription2" />
+      <StringResource ID="strEvalTasksInterval" />
+      <StringResource ID="strEvalTasksIntervalDescription" />
+      <StringResource ID="strSelectConnector" />
+      <StringResource ID="strComplete" />
+      <StringResource ID="strIsChangeProcessingEnabled" />
+      <StringResource ID="strChangeProcessingDescription" />
+      <StringResource ID="strCanAssignActivityImplementer" />
+      <StringResource ID="strAssignActivityImplementerDescription" />
+      <StringResource ID="strProjectLicensingSettings" />
+      <StringResource ID="strProjectLicensingSettingDescription" />
+      <StringResource ID="strProjectLicenseKey" />
+      <StringResource ID="strInvalidProjectURI" />
+      <StringResource ID="strInvalidLicense" />
+      <StringResource ID="strNoLicense" />
+      <StringResource ID="viewStringTitle" />
+      <StringResource ID="viewStringStartDate" />
+      <StringResource ID="viewStringEndDate" />
+      <StringResource ID="viewStringOwner" />
+      <StringResource ID="viewStringStatus" />
+      <StringResource ID="viewStringRelatedProject" />
+      <StringResource ID="viewStringPriority" />
+      <StringResource ID="viewStringScheduledStart" />
+      <StringResource ID="viewStringScheduledEnd" />
+      <StringResource ID="viewStringStage" />
+      <StringResource ID="viewStringId" />
+      <StringResource ID="viewStringLastModified" />
+      <StringResource ID="viewStringScheduledEndDate" />
+      <StringResource ID="viewStringScheduledStartDate" />
+      <StringResource ID="formExpanderInformation" />
+      <StringResource ID="formExpanderDetails" />
+      <StringResource ID="formExpanderNotes" />
+      <StringResource ID="formTabGeneral" />
+      <StringResource ID="formTabProjectSite" />
+      <StringResource ID="formTabRelatedItems" />
+      <StringResource ID="formTabHistory" />
+      <StringResource ID="formLabelTitle" />
+      <StringResource ID="formLabelDescription" />
+      <StringResource ID="formLabelProjectCreatedDate" />
+      <StringResource ID="formLabelProjectStartDate" />
+      <StringResource ID="formLabelProjectEndDate" />
+      <StringResource ID="formLabelProjectOwner" />
+      <StringResource ID="formLabelPercentComplete" />
+      <StringResource ID="formLabelProjectStatus" />
+      <StringResource ID="formLabelActivityType" />
+      <StringResource ID="formLabelParentWorkItem" />
+      <StringResource ID="formLabelCreatedDate" />
+      <StringResource ID="formLabelActivityImplementer" />
+      <StringResource ID="formLabelArea" />
+      <StringResource ID="formLabelPriority" />
+      <StringResource ID="formLabelStage" />
+      <StringResource ID="formLabelScheduledStartDate" />
+      <StringResource ID="formLabelScheduledEndDate" />
+      <StringResource ID="formLabelRelatedProject" />
+      <StringResource ID="formLabelNotes" />
+      <StringResource ID="formLabelProjectTasks" />
+      <StringResource ID="formLabelResources" />
+      <StringResource ID="gridColumnHeaderTitle" />
+      <StringResource ID="gridColumnHeaderStatus" />
+      <StringResource ID="gridColumnHeaderName" />
+      <StringResource ID="gridColumnHeaderUserName" />
+      <StringResource ID="gridColumnHeaderLastModified" />
+      <StringResource ID="buttonOpen" />
+    </StringResources>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Library">
+          <Name>Cireson Project Server Automation Library</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project">
+          <Name>Project</Name>
+          <Description>Cireson Project Configuration Item</Description>
+        </DisplayString>
+        <DisplayString ElementID="formLabelResources">
+          <Name>Resources:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelProjectTasks">
+          <Name>Tasks:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelNotes">
+          <Name>Notes:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelRelatedProject">
+          <Name>Related Project:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelScheduledStartDate">
+          <Name>Scheduled start date:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelScheduledEndDate">
+          <Name>Scheduled end date:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelStage">
+          <Name>Stage:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelPriority">
+          <Name>Priority:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelArea">
+          <Name>Area:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelActivityImplementer">
+          <Name>Activity Implementer:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelCreatedDate">
+          <Name>Created date:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelParentWorkItem">
+          <Name>Parent Work Item:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelActivityType">
+          <Name>Activity Type:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelProjectCreatedDate">
+          <Name>Created Date:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelProjectStartDate">
+          <Name>Start Date:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelProjectEndDate">
+          <Name>End Date:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelProjectOwner">
+          <Name>Project Owner:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelPercentComplete">
+          <Name>Percent Complete:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelProjectStatus">
+          <Name>Project Status:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelDescription">
+          <Name>Description:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formLabelTitle">
+          <Name>Title:</Name>
+        </DisplayString>
+        <DisplayString ElementID="formTabRelatedItems">
+          <Name>Related Items</Name>
+        </DisplayString>
+        <DisplayString ElementID="formTabHistory">
+          <Name>History</Name>
+        </DisplayString>
+        <DisplayString ElementID="formTabGeneral">
+          <Name>General</Name>
+        </DisplayString>
+        <DisplayString ElementID="formTabProjectSite">
+          <Name>Project Site</Name>
+        </DisplayString>
+        <DisplayString ElementID="formExpanderNotes">
+          <Name>Notes</Name>
+        </DisplayString>
+        <DisplayString ElementID="formExpanderInformation">
+          <Name>Project Information</Name>
+        </DisplayString>
+        <DisplayString ElementID="formExpanderDetails">
+          <Name>Project Details</Name>
+        </DisplayString>
+        <DisplayString ElementID="gridColumnHeaderTitle">
+          <Name>Title</Name>
+        </DisplayString>
+        <DisplayString ElementID="gridColumnHeaderStatus">
+          <Name>Status</Name>
+        </DisplayString>
+        <DisplayString ElementID="gridColumnHeaderName">
+          <Name>Name</Name>
+        </DisplayString>
+        <DisplayString ElementID="gridColumnHeaderUserName">
+          <Name>User Name</Name>
+        </DisplayString>
+        <DisplayString ElementID="gridColumnHeaderLastModified">
+          <Name>Last Modified</Name>
+        </DisplayString>
+        <DisplayString ElementID="buttonOpen">
+          <Name>Open...</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectStatusSetting">
+          <Name>Project Status Settings</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectStatusSettingDescription">
+          <Name>Allow the Project connector to automatically set a status for each Project imported into the Service Manager database.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectNewStatusSetting">
+          <Name>Allow the connector to set a 'New' status on Projects imported from Project Server that are 0% complete.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectInProgressStatusSetting">
+          <Name>Allow the connector to set an 'In Progress' status on Projects that are between 1-99% complete.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectCompletedStatusSetting">
+          <Name>Allow the connector to set a 'Completed' status on Projects that are 100% complete.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strDataRetentionSettings">
+          <Name>Data Retention Settings</Name>
+        </DisplayString>
+        <DisplayString ElementID="strEnableGrooming">
+          <Name>Enable Project Grooming</Name>
+        </DisplayString>
+        <DisplayString ElementID="strDays">
+          <Name>days</Name>
+        </DisplayString>
+        <DisplayString ElementID="strRetentionTime">
+          <Name>Project retention time:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strGroomingDescription">
+          <Name>Specify how long a Project will remain in the Service Manager database before it is automatically groomed.  This grooming workflow is based on the last modified date of the Project.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strEnableConnector">
+          <Name>Enable Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="strHours">
+          <Name>Hours</Name>
+        </DisplayString>
+        <DisplayString ElementID="strMinutes">
+          <Name>Minutes</Name>
+        </DisplayString>
+        <DisplayString ElementID="strSchedulePage">
+          <Name>Workflow Schedule</Name>
+        </DisplayString>
+        <DisplayString ElementID="strFrequencyInterval">
+          <Name>Frequency:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strFrequencySchedule">
+          <Name>Frequency Schedule</Name>
+        </DisplayString>
+        <DisplayString ElementID="strScheduledTime">
+          <Name>Scheduled Time:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strSunday">
+          <Name>Sunday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strMonday">
+          <Name>Monday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTuesday">
+          <Name>Tuesday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strWednesday">
+          <Name>Wednesday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strThursday">
+          <Name>Thursday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strFriday">
+          <Name>Friday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strSaturday">
+          <Name>Saturday</Name>
+        </DisplayString>
+        <DisplayString ElementID="strDailySchedule">
+          <Name>Daily Schedule</Name>
+        </DisplayString>
+        <DisplayString ElementID="strConnectionDetails">
+          <Name>Project Server Connection Details</Name>
+        </DisplayString>
+        <DisplayString ElementID="strResultSuccess">
+          <Name>The connector was created successfully.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strConfirmDelete">
+          <Name>Confirm Delete: </Name>
+        </DisplayString>
+        <DisplayString ElementID="strSuccessCreate">
+          <Name>The connector was created successfully.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strClose">
+          <Name>Close</Name>
+        </DisplayString>
+        <DisplayString ElementID="strConnectorTitle">
+          <Name>Cireson Project Server Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="strConnectSuccess">
+          <Name>Connection was successful.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strConnectFailed">
+          <Name>Connection failed.  Please check credentials.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTitle">
+          <Name>Cireson Project Server Automation</Name>
+        </DisplayString>
+        <DisplayString ElementID="strResults">
+          <Name>Results</Name>
+        </DisplayString>
+        <DisplayString ElementID="strOK">
+          <Name>OK</Name>
+        </DisplayString>
+        <DisplayString ElementID="strCancel">
+          <Name>Cancel</Name>
+        </DisplayString>
+        <DisplayString ElementID="strUsername">
+          <Name>Username:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strPassword">
+          <Name>Password:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strDomain">
+          <Name>Domain:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strO365" >
+          <Name>Connect to Project Online</Name>
+        </DisplayString>
+        <DisplayString ElementID="strCredentialsTitle">
+          <Name>Enter Credentials</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTestConnection">
+          <Name>Test Connection</Name>
+        </DisplayString>
+        <DisplayString ElementID="strPWAConnectionPage">
+          <Name>Project Server Connection</Name>
+        </DisplayString>
+        <DisplayString ElementID="strCreateBtn">
+          <Name>Create</Name>
+        </DisplayString>
+        <DisplayString ElementID="strPwaURL">
+          <Name>Project Web URL:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strGeneral">
+          <Name>General</Name>
+        </DisplayString>
+        <DisplayString ElementID="strGeneralTitle">
+          <Name>Enter a name and description for the Project connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="strName">
+          <Name>Name</Name>
+        </DisplayString>
+        <DisplayString ElementID="strDescription">
+          <Name>Description</Name>
+        </DisplayString>
+        <DisplayString ElementID="strEditConnector">
+          <Name>Edit Cireson Project Server 2013 Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="strCreateConnector">
+          <Name>Cireson Project Server 2013 Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="strDeleteConnector">
+          <Name>Delete Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectTasksSettings">
+          <Name>Project Tasks Settings</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectTasksSettingsDescription">
+          <Name>You can enable the import of first-level Project Tasks as Task Activities in Release Records to enable more control of your release cycle.  When a Release Record has a related Project, or if the Release Record is assigned to a Change Request with a related Project, the related Project Tasks will be added to the Release Record. You may also specify tags to detect in the title of the Project Tasks for insertion into the Release Record.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strEnableProjectTasksInsertion">
+          <Name>Add first level Project Tasks into Release Records.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTasksTag" >
+          <Name>Add first-level Project Tasks containing following tag:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTasksTagDescription">
+          <Name>*Leaving this blank will insert all first-level Tasks from the Project.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTasksInsertIndexDescription1">
+          <Name>Add Task Activities at the following activity stage:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTasksInsertIndexDescription2">
+          <Name>*Tasks are added as Task Activities before the first activity makred with the selected stage.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strTaskActivityPrefix" >
+          <Name>Project Task Activity prefix:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strEvalTasksInterval" >
+          <Name>Project Tasks refresh interval:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strEvalTasksIntervalDescription" >
+          <Name>*Task information is updated or added from Project Server at the interval specified.  It is not recommended to set the interval less than 5 minutes.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strSelectConnector" >
+          <Name>Select the connector to use to pull Task information from Project Server:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strComplete">
+          <Name>Complete</Name>
+        </DisplayString>
+        <DisplayString ElementID="strIsChangeProcessingEnabled">
+          <Name>Process Change Requests instead of Release Reocrds for related Projects.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strChangeProcessingDescription">
+          <Name>*When selected, the workflow checks for a related Project in any active Change Requests instead of the Release Record. It will add Task Activities into the Release Record tied to a Change Request through a Dependent Activity.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strCanAssignActivityImplementer">
+          <Name>Assign the first resource as an Activity Implementer</Name>
+        </DisplayString>
+        <DisplayString ElementID="strAssignActivityImplementerDescription">
+          <Name>*Assigns the first resource assigned to the task from Project Server as the Activity Implementer in the Task Activity.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectLicensingSettings">
+          <Name>Licensing</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectLicensingSettingDescription">
+          <Name>Enter in your Cireson Project Connector license key to license the connector.  Workflows and Forms will not run without a valid license key.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strProjectLicenseKey">
+          <Name>License Key:</Name>
+        </DisplayString>
+        <DisplayString ElementID="strInvalidProjectURI">
+          <Name>Project Web URI is invalid.</Name>
+        </DisplayString>
+        <DisplayString ElementID="strInvalidLicense">
+          <Name>Invalid Project Server Connector License</Name>
+        </DisplayString>
+        <DisplayString ElementID="strNoLicense">
+          <Name>THIS PRODUCT IS NOT LICENSED</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringLastModified" >
+          <Name>Last Modified</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringTitle" >
+          <Name>Title</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringRelatedProject" >
+          <Name>Project</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringScheduledStartDate" >
+          <Name>Scheduled Start Date</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringScheduledEndDate" >
+          <Name>Scheduled End Date</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringStage" >
+          <Name>Stage</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringPriority" >
+          <Name>Priority</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringId" >
+          <Name>ID</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringStartDate" >
+          <Name>Start Date</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringEndDate" >
+          <Name>End Date</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringOwner" >
+          <Name>Owner</Name>
+        </DisplayString>
+        <DisplayString ElementID="viewStringStatus" >
+          <Name>Status</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.TaskActivitiesCancelled">
+          <Name>Cancelled Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.TaskActivitiesFailed">
+          <Name>Failed Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.TaskActivitiesActive">
+          <Name>Active Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.TaskActivitiesPending">
+          <Name>Pending Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.TaskActivitiesCompleted">
+          <Name>Completed Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.TaskActivitiesUnassigned">
+          <Name>Unassigned Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.MyTaskActivities">
+          <Name>My Task Activities</Name>
+        </DisplayString>    
+        <DisplayString ElementID="View.AllTaskActivities">
+          <Name>All Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.AllProjects">
+          <Name>All Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.AllMyProjects">
+          <Name>All My Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.MyInProgressProjects">
+          <Name>My In Progress Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.NewProjects">
+          <Name>New Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.InProgressProjects">
+          <Name>In Progress Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="View.CompletedProjects">
+          <Name>Completed Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="Folder.Projects">
+          <Name>Projects</Name>
+        </DisplayString>
+        <DisplayString ElementID="Folder.Activities">
+          <Name>Project Task Activities</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectTasks">
+          <Name>Project Tasks</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Library.CreateConnectorTask">
+          <Name>Project Server 2013 Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Library.EditConnector.Task">
+          <Name>Properties</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Library.DeleteConnector.Task">
+          <Name>Delete</Name>
+        </DisplayString>
+        <DisplayString ElementID="Microsoft.SystemCenter.Connector.ProjectServer">
+          <Name>Project Server Connector</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="ProjectLastModified">
+          <Name>ProjectLastModified</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="GUID">
+          <Name>GUID</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="ProjectCreatedDate">
+          <Name>ProjectCreatedDate</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="ProjectStartDate">
+          <Name>ProjectStartDate</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="ProjectEndDate">
+          <Name>ProjectEndDate</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="PercentComplete">
+          <Name>PercentComplete</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="ProjectWebUrl">
+          <Name>Project Web URL</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="Description">
+          <Name>Description</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="Title">
+          <Name>Title</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="ProjectCalendar">
+          <Name>Project Calendar</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project" SubElementID="NextMilestone">
+          <Name>Next Milestone</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectTask.Activity" SubElementID="TaskGUID">
+          <Name>Task GUID</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectStatusEnum">
+          <Name>Project Status</Name>
+          <Description>Cireson Project Status</Description>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectStatusEnum.New">
+          <Name>New</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectStatusEnum.InProgress">
+          <Name>In Progress</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectStatusEnum.Completed">
+          <Name>Completed</Name>
+        </DisplayString>
+        <DisplayString ElementID="strSettings">
+          <Name>Cireson Project Server Automation Settings</Name>
+        </DisplayString>
+        <DisplayString ElementID="strGroomingSettings">
+          <Name>Project Grooming Settings</Name>
+        </DisplayString>
+        <DisplayString ElementID="strStatusSettings">
+          <Name>Project Status Settings</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ChangeRequestHasProject.ProjectionType">
+          <Name>(Cireson) Change Request Has Project</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ReleaseRecordHasProject.ProjectionType">
+          <Name>(Cireson) Release Record Has Project</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project.ProjectionType">
+          <Name>(Cireson) Project (Typical)</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectTask.Activity.ProjectionType">
+          <Name>(Cireson) Project Task Activity (Typical)</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.Project.Views.ProjectionType">
+          <Name>(Cireson) Project (View)</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectTaskActivityRelatesToProject.ProjectionType">
+          <Name>(Cireson) Project Task Activity Relates To Project</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectTaskActivityHasResource.ProjectionType">
+          <Name>(Cireson) Project Task Activity Has Resource</Name>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectHasOwner">
+          <Name>Project Has Owner</Name>
+          <Description>Project Owner</Description>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.WorkItemHasProject">
+          <Name>Work Item Relates To Project</Name>
+          <Description>Work Item relates to a Project Configuration Item.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectHasTask">
+          <Name>Project Has Task</Name>
+          <Description>Project contains Project Task activities.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Microsoft.SystemCenter.Connector.ProjectServer.Settings">
+          <Name>Cireson - Project Server Automation Settings</Name>
+          <Description>Settings for the Project Server Connector.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.Connector.ProjectServer.Settings.Task">
+          <Name>Edit</Name>
+          <Description>Edit Cireson Project Server Automation Settings</Description>
+        </DisplayString>
+        <DisplayString ElementID="Cireson.ProjectAutomation.ProjectTask.Activity">
+          <Name>Cireson Project Task Activity</Name>
+          <Description>This class represents Tasks from Project Server.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+  <Resources>
+    <Assembly ID="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.Assembly" Accessibility="Public" FileName="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks.dll" HasNullStream="false" QualifiedName="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.ConsoleTasks, Version=7.5.2016.4, Culture=neutral, PublicKeyToken=98ba2176e2a9efbc"/>
+    <Assembly ID="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Assembly" Accessibility="Public" FileName="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.dll" HasNullStream="false" QualifiedName="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF, Version=7.5.2016.4, Culture=neutral, PublicKeyToken=98ba2176e2a9efbc"/>
+    <Assembly ID="LicenseManagement.Client.dll.Assembly" Accessibility="Public" FileName="LicenseManagement.Client.dll" QualifiedName="LicenseManagement.Client" />
+    <Assembly ID="Microsoft.ProjectServer.Client.dll.Assembly" Accessibility="Public" FileName="Microsoft.ProjectServer.Client.dll" QualifiedName="Microsoft.ProjectServer.Client" />
+    <Assembly ID="Microsoft.SharePoint.Client.dll.Assembly" Accessibility="Public" FileName="Microsoft.SharePoint.Client.dll" QualifiedName="Microsoft.SharePoint.Client" />
+    <Assembly ID="Microsoft.SharePoint.Client.Runtime.dll.Assembly" Accessibility="Public" FileName="Microsoft.SharePoint.Client.Runtime.dll" QualifiedName="Microsoft.SharePoint.Client.Runtime" />
+    <Image ID="Image.Cireson.16x16" Accessibility="Public" FileName="Image.Cireson.16x16.ico" HasNullStream="false" />
+    <Image ID="Image.ActiveActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_ActiveManualActivity_16.ico" HasNullStream="false" />
+    <Image ID="Image.AllActivites.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_AllManualActivities_16.ico" HasNullStream="false" />
+    <Image ID="Image.CancelledActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_CancelledManualActivities_16.ico" HasNullStream="false" />
+    <Image ID="Image.CompletedActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_CompletedManualActivity_16.ico" HasNullStream="false" />
+    <Image ID="Image.FailedActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_FailedManualActivities_16.ico" HasNullStream="false" />
+    <Image ID="Image.PendingActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_PendingManualActivity_16.ico" HasNullStream="false" />
+    <Image ID="Image.UnassignedActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_UnassignedManualActivities_16.ico" HasNullStream="false" />
+    <Image ID="Image.MyActivities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_ActivityMgmt_ManualActivitiesAssignedToMe_16.ico" HasNullStream="false" />
+    <Image ID="Image.Activities.16x16" Accessibility="Public" FileName="ServiceManager.ActivityManagement.Library_7.5.3079.367_Wunderbar_ActivityManagement_16.ico" HasNullStream="false" />
+  </Resources>
+</ManagementPack>
