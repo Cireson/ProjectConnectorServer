@@ -1,0 +1,63 @@
+﻿<wpfwiz:WizardRegularPageBase x:Class="Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Forms.ScheduleWizardPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:wpfwiz="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfWizardFramework;assembly=Microsoft.EnterpriseManagement.UI.WpfWizardFramework"
+             xmlns:classes="clr-namespace:Microsoft.EnterpriseManagement.ServiceManager.ProjectServer.WPF.Classes"           
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <Grid Margin="20,20,20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <classes:StringConverter x:Key="strConverter" />
+        </Grid.Resources>
+        <StackPanel Grid.Row="0">
+            <RadioButton x:Name="rbDailySchedule" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strDailySchedule}" IsChecked="{Binding IsDailySchedule}" HorizontalAlignment="Left" Width="360" Checked="rbDailySchedule_Checked"/>
+                <StackPanel x:Name="spDailySchedule" Margin="20,20,0,0" IsEnabled="{Binding IsDailySchedule}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+                        <CheckBox x:Name="cbSunday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strSunday}" IsChecked="{Binding IsSunday}" Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                        <CheckBox x:Name="cbMonday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strMonday}" IsChecked="{Binding IsMonday}"  Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                        <CheckBox x:Name="cbTuesday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strTuesday}" IsChecked="{Binding IsTuesday}" Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                        <CheckBox x:Name="cbWednesday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strWednesday}" IsChecked="{Binding IsWednesday}"  Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                        <CheckBox x:Name="cbThursday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strThursday}" IsChecked="{Binding IsThursday}"  Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                        <CheckBox x:Name="cbFriday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strFriday}" IsChecked="{Binding IsFriday}" Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                        <CheckBox x:Name="cbSaturday" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strSaturday}" IsChecked="{Binding IsSaturday}"  Margin="5,5,5,0" Checked="cbDays_Validate" Unchecked="cbDays_Validate" />
+                    </StackPanel>
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strScheduledTime}" Grid.Row="1" Grid.Column="0" Margin="0,20,0,0" />
+                    <TextBox x:Name="txtTime" Grid.Row="1" Grid.Column="1" MinWidth="100" Margin="0,20,0,0" Height="24" Text="{Binding ScheduledTime}" TextChanged="txtTime_TextChanged" />
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,20,0,0">
+            <RadioButton x:Name="rbFrequencySchedule" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strFrequencySchedule}" IsChecked="{Binding IsFrequencySchedule}" Checked="rbFrequencySchedule_Checked" />
+            <StackPanel x:Name="spFrequencySchedule" Margin="0,20,0,0" IsEnabled="{Binding IsFrequencySchedule}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strFrequencyInterval}" Grid.Column="0" />
+                    <TextBox x:Name="txtFrequency" Grid.Column="1" MinWidth="100" Margin="0,0,5,0" Height="24" Text="{Binding FrequencyInterval}" TextChanged="txtFrequency_TextChanged"  />
+                    <ComboBox x:Name="cbFrequencyUnit" Grid.Column="2"  MinWidth="150" Height="24" SelectionChanged="cbFrequencyUnit_SelectionChanged"  />
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <CheckBox x:Name="cbEnableConnector" Grid.Row="3" Content="{Binding Converter={StaticResource strConverter}, ConverterParameter=strEnableConnector}" Margin="5,10,0,0" IsChecked="{Binding IsEnabled}" />
+    </Grid>
+</wpfwiz:WizardRegularPageBase>
