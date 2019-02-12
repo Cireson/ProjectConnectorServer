@@ -3,4 +3,8 @@
 ################################################################################
 
 /Cireson.Connectors.Project.Adapter/bin/Debug
-obj/Debug
+Cireson.Connectors.ProjectConnector/Cireson.Connectors.Project.Adapter/obj/
+Cireson.Connectors.ProjectConnector/Cireson.Connectors.Project.ConsoleTasks/obj/
+Cireson.Connectors.ProjectConnector/Cireson.Connectors.Project.Helpers/obj/
+Cireson.Connectors.ProjectConnector/Cireson.Connectors.Project.WPF/obj/
+Cireson.Connectors.ProjectConnector/Cireson.Connectors.Project.Workflows/obj/
