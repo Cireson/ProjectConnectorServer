@@ -1,5 +1,5 @@
 
-// Copyright (C) 2019 Cireson, LLC. All Rights Reserved
+
 
 //////////////////////////////////////////////////////////////////////////////
 //This file is part of Cireson Project Connector. 
@@ -31,7 +31,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Cireson")]
 [assembly: AssemblyProduct("Project Server Automation Connector")]
-[assembly: AssemblyCopyright("Copyright ©  Cireson 2016")]
+[assembly: AssemblyCopyright("Copyright ï¿½  Cireson 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

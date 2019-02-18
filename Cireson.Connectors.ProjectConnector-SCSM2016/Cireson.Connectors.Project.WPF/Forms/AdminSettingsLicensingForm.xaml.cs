@@ -1,5 +1,5 @@
 
-// Copyright (C) 2019 Cireson, LLC. All Rights Reserved
+
 
 //////////////////////////////////////////////////////////////////////////////
 //This file is part of Cireson Project Connector. 
